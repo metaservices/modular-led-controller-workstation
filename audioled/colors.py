@@ -58,7 +58,7 @@ def hsv_to_rgb(hsv):
     a = np.expand_dims(hsv, axis=1).T.astype(np.uint8)
     pImg = Image.fromarray(a, mode='HSV')
     pImg = pImg.convert('RGB')
-    out = np.asarray(pImg, dtype=np.uint8)
+    out = np.array(pImg, dtype=np.uint8)
     out = out.reshape(-1, out.shape[-1]).T
     return out
 
@@ -67,7 +67,7 @@ def rgb_to_hsv(rgb):
     a = np.expand_dims(rgb, axis=1).T.astype(np.uint8)
     pImg = Image.fromarray(a, mode='RGB')
     pImg = pImg.convert('HSV')
-    out = np.asarray(pImg, dtype=np.uint8)
+    out = np.array(pImg, dtype=np.uint8)
     out = out.reshape(-1, out.shape[-1]).T
     return out
 
@@ -319,7 +319,7 @@ class RGBToHSV(Effect):
         a = np.expand_dims(a, axis=1).T.astype(np.uint8)
         pImg = Image.fromarray(a, mode='RGB')
         pImg = pImg.convert('HSV')
-        out = np.asarray(pImg, dtype=np.uint8)
+        out = np.array(pImg, dtype=np.uint8)
         out = out.reshape(-1, out.shape[-1]).T
         self._outputBuffer[0] = out
 
@@ -348,6 +348,6 @@ class HSVToRGB(Effect):
         a = np.expand_dims(a, axis=1).T.astype(np.uint8)
         pImg = Image.fromarray(a, mode='HSV')
         pImg = pImg.convert('RGB')
-        out = np.asarray(pImg, dtype=np.uint8)
+        out = np.array(pImg, dtype=np.uint8)
         out = out.reshape(-1, out.shape[-1]).T
         self._outputBuffer[0] = out
